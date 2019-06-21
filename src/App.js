@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useTitleInput} from "./hooks/useTitleInput";
 
 const App = () => {
   const [
     dishName,
     setDishName,
-  ] = useState('');
-
-  useEffect(() => {
-    document.title = `Dish name is ${dishName}`;
-  });
+  ] = useTitleInput('');
 
   return (
     <div className="main-wrapper">
@@ -22,5 +19,6 @@ const App = () => {
     </div>
   );
 };
+
 
 export default App;
