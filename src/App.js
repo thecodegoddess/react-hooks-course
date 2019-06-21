@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useTitleInput} from "./hooks/useTitleInput";
 
 const App = () => {
@@ -7,9 +7,11 @@ const App = () => {
     setDishName,
   ] = useTitleInput('');
 
+  const ref = useRef();
+
   return (
-    <div className="main-wrapper">
-      <h1>Level Up Dishes</h1>
+    <div className="main-wrapper" ref={ref}>
+      <h1 onClick={() => ref.current.classList.toggle('fake-class-here')}>Level Up Dishes</h1>
       <form onSubmit={(e) => {
         e.preventDefault();
       }}>
