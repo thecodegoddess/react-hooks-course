@@ -1,5 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, createContext } from 'react';
+import Toggle from './Toggle';
 import { useTitleInput} from "./hooks/useTitleInput";
+
+export const UserContext = createContext();
 
 const App = () => {
   const [
@@ -10,15 +13,22 @@ const App = () => {
   const ref = useRef();
 
   return (
-    <div className="main-wrapper" ref={ref}>
-      <h1 onClick={() => ref.current.classList.toggle('fake-class-here')}>Level Up Dishes</h1>
-      <form onSubmit={(e) => {
-        e.preventDefault();
-      }}>
-        <input type="text" onChange={(event) => setDishName(event.target.value)} value={dishName} />
-        <button>Submit The Form</button>
-      </form>
-    </div>
+    <UserContext.Provider
+      value={{
+        user: true,
+      }}
+    >
+      <div className="main-wrapper" ref={ref}>
+        <h1 onClick={() => ref.current.classList.toggle('fake-class-here')}>Level Up Dishes</h1>
+        <Toggle />
+        <form onSubmit={(e) => {
+          e.preventDefault();
+        }}>
+          <input type="text" onChange={(event) => setDishName(event.target.value)} value={dishName}/>
+          <button>Submit The Form</button>
+        </form>
+      </div>
+    </UserContext.Provider>
   );
 };
 
