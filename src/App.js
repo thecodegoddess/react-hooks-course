@@ -1,5 +1,5 @@
 import { Counter } from './Counter';
-import React, { useRef, useMemo } from 'react';
+import React, { useRef } from 'react';
 import Toggle from './Toggle';
 import { useTitleInput } from './hooks/useTitleInput';
 
@@ -8,18 +8,9 @@ const App = () => {
 
   const ref = useRef();
 
-  const reverseWord = (word) => {
-    console.log('i was called');
-    console.log("the word", word);
-    return word.split('').reverse().join('');
-  };
-
-  let title = 'Level Up Dishes';
-  const pageTitle = useMemo(() => reverseWord(title), [title]);
-
   return (<div className="main-wrapper" ref={ref}>
       <h1 onClick={() => ref.current.classList.toggle('fake-class-here')}>
-        { pageTitle }
+        Level Up Dishes
       </h1>
       <Toggle/>
       <Counter/>
