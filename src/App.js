@@ -16,8 +16,8 @@ const App = () => {
   };
 
   useEffect(() => {
-    // fetchDishes(); // Calls on every render over and over again
-  });
+    fetchDishes();
+  }, []);
 
 
   return (<div className="main-wrapper" ref={ref}>
