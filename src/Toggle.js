@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import DishForm from "./DishForm";
 
 const Toggle = () => {
   const [isToggled, setToggled] = useState(false);
 
   return (<div>
       <button type="button" onClick={() => setToggled(!isToggled)}> Toggle Me</button>
-      {isToggled && (<h2>Hello</h2>)}
+      {isToggled && <DishForm/>}
     </div>);
 };
 
