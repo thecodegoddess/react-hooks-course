@@ -1,5 +1,5 @@
 import React from 'react';
-import { useBodyScrollLock} from "./hooks/useBodyScrollLock";
+import { useBodyScrollLock } from './hooks/useBodyScrollLock';
 
 const DishForm = () => {
   useBodyScrollLock();
@@ -9,7 +9,7 @@ const DishForm = () => {
       <form>
         <div className="form-row">
           <label htmlFor="name">Name:</label>
-          <input type="text" id="name"/>
+          <input type="text" id="name" />
         </div>
       </form>
     </div>
